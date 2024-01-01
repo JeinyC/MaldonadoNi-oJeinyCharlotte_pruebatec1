@@ -58,7 +58,7 @@ Esta opción permite al usuario finalizar la ejecución del programa y salir del
 - **Funcionalidad :**
   - `public static void main(String[] args)`: Método de inicio de la aplicación. Aquí se instancia `ManagerEmpleados` y se invoca el método `menu()`.
   - El bloque `try-catch` maneja excepciones que pueden ocurrir durante la ejecución del programa. Si ocurre un error de `InvalidDataException`, se muestra un mensaje de error personalizado.
-  - 
+    
 ### Clase `Empleado`
 
 - **Descripción :** Clase que representa la entidad `Empleado` en la base de datos.
@@ -88,13 +88,13 @@ Esta opción permite al usuario finalizar la ejecución del programa y salir del
   - Define métodos para validar datos ingresados por el usuario y manejar errores en la entrada de datos.
   
 ### Directorio del archivo SQL
-Empleados
-│
-└── src
-    └── main
-        └── resources
-            └── db
-                └── empleado.sql
+  Empleados  
+  │   
+  └── src  
+        └── main  
+           └── resources  
+                └── db  
+                    └── empleado.sql  
 
 
 ## Comentario del Programa
