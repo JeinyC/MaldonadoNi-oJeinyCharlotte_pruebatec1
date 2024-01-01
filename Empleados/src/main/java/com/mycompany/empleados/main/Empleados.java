@@ -10,7 +10,6 @@ import com.mycompany.empleados.manager.ManagerEmpleados;
  * @author jeiny
  */
 public class Empleados {
-
     public static void main(String[] args) {
 
         ManagerEmpleados managerEmpleados;

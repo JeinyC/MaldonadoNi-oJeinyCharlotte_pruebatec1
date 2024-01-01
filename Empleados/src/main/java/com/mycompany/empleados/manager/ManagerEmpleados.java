@@ -52,19 +52,19 @@ public class ManagerEmpleados {
                     listaSeleccion("|         LISTA DE EMPLEADOS         |", 1);
                     break;
                 case 3:
-                    listaSeleccion("|        SELECCIONA UN EMPLEADO        |", 2);
+                    listaSeleccion("|        SELECCIONE UN EMPLEADO        |", 2);
                     int id = almacenarID();
                     if (serviciosEmpleados.existeEmpleadoPorIdServicio(id)) {
-                        listaSeleccion("|  SELECCIONA UN DATO PARA ACUALIZAR   |", 4);
+                        listaSeleccion("|  SELECCIONE UN DATO PARA ACUALIZAR   |", 4);
                         menuActualizarEmpleado(id);
                     }
                     break;
                 case 4:
-                    listaSeleccion("|        SELECCIONA UN EMPLEADO        |", 2);
+                    listaSeleccion("|        SELECCIONE UN EMPLEADO        |", 2);
                     eliminarEmpleado();
                     break;
                 case 5:
-                    listaSeleccion("|         SELECCIONA UN CARGOS         |", 3);
+                    listaSeleccion("|         SELECCIONE UN CARGOS         |", 3);
                     mostrarListaEmpleadosPorCargo();
                     break;
                 case 6:
@@ -135,7 +135,6 @@ public class ManagerEmpleados {
 
         List<Empleado> listaEmpleados = serviciosEmpleados.listaSeleccionServicio();
         Scanner sc = new Scanner(System.in);
-        boolean opcionInvalida = false;
 
         System.out.println("Seleccione un cargo: ");
         int id = invalidDataException.validarEntradaMenu(sc.nextLine());
@@ -217,21 +216,21 @@ public class ManagerEmpleados {
 
     private void actualizarCargo(Empleado empleadoEditar) throws InvalidDataException {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el cargo: ");
+        System.out.println("Introduce el cargo:");
         empleadoEditar.setCargo(invalidDataException.validarString(sc.nextLine()));
         serviciosEmpleados.editarEmpleadoServicio(empleadoEditar);
     }
 
     private void actualizarSalario(Empleado empleadoEditar) throws InvalidDataException {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el salario: ");
+        System.out.println("Introduce el salario:");
         empleadoEditar.setSalario(invalidDataException.validarDouble(sc.nextLine()));
         serviciosEmpleados.editarEmpleadoServicio(empleadoEditar);
     }
 
     private void eliminarEmpleado() throws InvalidDataException {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Selecciona un empleado para eliminarlo:");
+        System.out.println("Seleccione un empleado para eliminarlo:");
         String id = sc.nextLine();
         serviciosEmpleados.eliminarEmpleadoServicio(invalidDataException.validarEntradaMenu(id));
     }

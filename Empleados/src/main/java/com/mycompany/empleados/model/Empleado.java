@@ -2,17 +2,15 @@ package com.mycompany.empleados.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.lang.model.element.Name;
+import javax.persistence.*;
 
 /**
  * @author jeiny
  */
 
 @Entity
+@Table(name = "Empleado")
 public class Empleado implements Serializable {
 
     @Id
