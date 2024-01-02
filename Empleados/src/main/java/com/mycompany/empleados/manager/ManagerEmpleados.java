@@ -17,62 +17,65 @@ public class ManagerEmpleados {
         Scanner sc = new Scanner(System.in);
 
         while (flag) {
+            try {
+                List<String> opciones = List.of(new String[]{
+                        "1. Agregar un nuevo empleado",
+                        "2. Mostrar lista de empleados ",
+                        "3. Actualizar datos de un empleado",
+                        "4. Eliminar un empleado",
+                        "5. Mostrar empleados por cargo",
+                        "6. Salir"
+                });
 
-            List<String> opciones = List.of(new String[]{
-                    "1. Agregar un nuevo empleado",
-                    "2. Mostrar lista de empleados ",
-                    "3. Actualizar datos de un empleado",
-                    "4. Eliminar un empleado",
-                    "5. Mostrar empleados por cargo",
-                    "6. Salir"
-            });
+                String separador = "+----------------------------------------+";
+                String titulo = "|         GESTION DE EMPLEADOS         |";
+                String formatoTitulo = String.format("|%-40s|", titulo);
+                System.out.println(separador);
+                System.out.println(formatoTitulo);
+                System.out.println(separador);
 
-            String separador = "+----------------------------------------+";
-            String titulo = "|         GESTION DE EMPLEADOS         |";
-            String formatoTitulo = String.format("|%-40s|", titulo);
-            System.out.println(separador);
-            System.out.println(formatoTitulo);
-            System.out.println(separador);
+                for (String opcion : opciones) {
+                    String formatoOpcion = String.format("|  %-38s|", opcion);
+                    System.out.println(formatoOpcion);
+                }
 
-            for (String opcion : opciones) {
-                String formatoOpcion = String.format("|  %-38s|", opcion);
-                System.out.println(formatoOpcion);
-            }
+                System.out.println(separador);
+                System.out.println("Seleccione una opcion:");
 
-            System.out.println(separador);
-            System.out.println("Seleccione una opcion:");
+                String menuOpcion = sc.nextLine();
 
-            String menuOpcion = sc.nextLine();
-
-            switch (invalidDataException.validarEntradaMenu(menuOpcion)) {
-                case 1:
-                    agregarEmpleado();
-                    break;
-                case 2:
-                    listaSeleccion("|         LISTA DE EMPLEADOS         |", 1);
-                    break;
-                case 3:
-                    listaSeleccion("|        SELECCIONE UN EMPLEADO        |", 2);
-                    int id = almacenarID();
-                    if (serviciosEmpleados.existeEmpleadoPorIdServicio(id)) {
-                        listaSeleccion("|  SELECCIONE UN DATO PARA ACUALIZAR   |", 4);
-                        menuActualizarEmpleado(id);
-                    }
-                    break;
-                case 4:
-                    listaSeleccion("|        SELECCIONE UN EMPLEADO        |", 2);
-                    eliminarEmpleado();
-                    break;
-                case 5:
-                    listaSeleccion("|         SELECCIONE UN CARGOS         |", 3);
-                    mostrarListaEmpleadosPorCargo();
-                    break;
-                case 6:
-                    flag = false;
-                    break;
-                default:
-                    System.err.println("Opción no válida. Por favor, selecciona una opción válida.");
-                    break;
+                switch (invalidDataException.validarEntradaMenu(menuOpcion)) {
+                    case 1:
+                        agregarEmpleado();
+                        break;
+                    case 2:
+                        listaSeleccion("|         LISTA DE EMPLEADOS         |", 1);
+                        break;
+                    case 3:
+                        listaSeleccion("|        SELECCIONE UN EMPLEADO        |", 2);
+                        int id = almacenarID();
+                        if (serviciosEmpleados.existeEmpleadoPorIdServicio(id)) {
+                            listaSeleccion("|  SELECCIONE UN DATO PARA ACUALIZAR   |", 4);
+                            menuActualizarEmpleado(id);
+                        }
+                        break;
+                    case 4:
+                        listaSeleccion("|        SELECCIONE UN EMPLEADO        |", 2);
+                        eliminarEmpleado();
+                        break;
+                    case 5:
+                        listaSeleccion("|         SELECCIONE UN CARGOS         |", 3);
+                        mostrarListaEmpleadosPorCargo();
+                        break;
+                    case 6:
+                        flag = false;
+                        break;
+                    default:
+                        System.err.println("Opción no válida. Por favor, selecciona una opción válida");
+                        break;
+                }
+            } catch (InvalidDataException e) {
+                System.err.println("|  Error : " + e.getMessage());
             }
         }
     }
@@ -138,11 +141,14 @@ public class ManagerEmpleados {
 
         System.out.println("Seleccione un cargo: ");
         int id = invalidDataException.validarEntradaMenu(sc.nextLine());
-
-        for (Empleado empleado : listaEmpleados) {
-            if (empleado.getCargo().equalsIgnoreCase(cargoExistente().get(id))) {
-                String formatoOpcion = String.format("|  %-38s|", empleado);
-                System.out.println(formatoOpcion);
+        if(id < 1 || id > 4){
+            throw new InvalidDataException("Opción no válida. Por favor, selecciona una opción válida.");
+        }else {
+            for (Empleado empleado : listaEmpleados) {
+                if (empleado.getCargo().equalsIgnoreCase(cargoExistente().get(id))) {
+                    String formatoOpcion = String.format("|  %-38s|", empleado);
+                    System.out.println(formatoOpcion);
+                }
             }
         }
     }

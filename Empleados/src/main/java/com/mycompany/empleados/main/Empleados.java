@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 package com.mycompany.empleados.main;
-import com.mycompany.empleados.exceptions.InvalidDataException;
 import com.mycompany.empleados.manager.ManagerEmpleados;
 
 /**
@@ -17,10 +13,7 @@ public class Empleados {
         try {
             managerEmpleados = new ManagerEmpleados();
             managerEmpleados.menu();
-        }catch (InvalidDataException e){
-            System.err.println("|  Error : " + e.getMessage());
         }catch (Exception e){
-            e.printStackTrace();
             System.err.println("|  Error : " + e.getMessage());
         }
     }

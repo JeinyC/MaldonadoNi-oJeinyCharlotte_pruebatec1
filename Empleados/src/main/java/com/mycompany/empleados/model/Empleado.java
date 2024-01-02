@@ -2,7 +2,6 @@ package com.mycompany.empleados.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import javax.lang.model.element.Name;
 import javax.persistence.*;
 
 /**
