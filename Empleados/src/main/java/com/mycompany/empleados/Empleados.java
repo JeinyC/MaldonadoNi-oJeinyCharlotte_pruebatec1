@@ -1,4 +1,4 @@
-package com.mycompany.empleados.main;
+package com.mycompany.empleados;
 import com.mycompany.empleados.manager.ManagerEmpleados;
 
 /**
