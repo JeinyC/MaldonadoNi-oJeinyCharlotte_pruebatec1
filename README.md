@@ -88,15 +88,7 @@ Esta opción permite al usuario finalizar la ejecución del programa y salir del
   - Define métodos para validar datos ingresados por el usuario y manejar errores en la entrada de datos.
   
 ### Directorio del archivo SQL
-Empleados
-│
-└── src
-    └── main
-        └── resources
-            └── db
-                └── empleado.sql
-
-
+[Archivo SQL](https://github.com/JeinyC/MaldonadoNi-oJeinyCharlotte_pruebatec1/blob/main/Empleados/src/main/resources/db)
 
 ## Comentario del Programa
 > Descripción detallada de algunos métodos.
